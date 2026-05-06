@@ -34,7 +34,7 @@ public class FlipperInput : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if (GameManager.Instance.State != GameState.Playing) return;    // Playing 中のみ動作
+        if (GameManager.Instance.State != GameStates.Playing) return;    // Playing 中のみ動作
 
         float dir = isLeft ? -1f : 1f;
         JointSpring spring = joint.spring;

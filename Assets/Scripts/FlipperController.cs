@@ -61,7 +61,7 @@ public class FlipperController : MonoBehaviour
     /// <param name="ctx"></param>
     private void OnRightPerformed(InputAction.CallbackContext ctx)
     {
-        //if (GameManager.Instance.State != GameState.Playing) return;
+        if (GameManager.Instance.State != GameStates.Playing) return;
 
         _rightFlipper.SetInput(true);
     }
