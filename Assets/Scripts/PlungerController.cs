@@ -8,7 +8,7 @@ public class PlungerController : MonoBehaviour
     public Transform PlungerVisual;
     public Transform EndPoint;
 
-    public float MaxForce = 800f;
+    public float MaxForce = 5f;
     public float MaxCharge = 1f;
     public float ChargeSpeed = 1.5f;
 
