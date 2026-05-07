@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// プランジャーの挙動処理
+/// </summary>
 public class PlungerController : MonoBehaviour
 {
     public Transform LaunchPoint;
@@ -47,7 +50,9 @@ public class PlungerController : MonoBehaviour
     {
         // GameStates制御
         if (GameManager.Instance.State != GameStates.LaunchReady)
+        {
             return;
+        }
 
         // チャージ中
         if (isCharging)
@@ -63,9 +68,11 @@ public class PlungerController : MonoBehaviour
     private void OnPlunger(InputAction.CallbackContext ctx)
     {
         if (GameManager.Instance.State != GameStates.LaunchReady)
+        {
             return;
-        Debug.Log("Plunger Pressed");
+        }
 
+        //Debug.Log("Plunger Pressed");
         isCharging = true;
     }
 
@@ -73,10 +80,11 @@ public class PlungerController : MonoBehaviour
     private void OnPlungerRelease(InputAction.CallbackContext ctx)
     {
         if (GameManager.Instance.State != GameStates.LaunchReady)
+        {
             return;
+        }
 
-        Debug.Log("Plunger Released");
-
+        //Debug.Log("Plunger Released");
         LaunchBall();
 
         isCharging = false;
@@ -92,19 +100,21 @@ public class PlungerController : MonoBehaviour
         if (CurrentBall == null) return;
 
         Rigidbody rb = CurrentBall;
-
-        // 安定化
+        rb.isKinematic = false;
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        // 発射
+        // ボールに向かって射出
         float force = charge * MaxForce;
         rb.AddForce(LaunchPoint.forward * force, ForceMode.Impulse);
     }
 
     private void UpdateVisual()
     {
-        if (PlungerVisual == null) return;
+        if (PlungerVisual == null)
+        {
+            return;
+        }
 
         float pull = charge * MaxPullDistance;
         float curved = Mathf.Pow(charge, 2f);
@@ -116,7 +126,8 @@ public class PlungerController : MonoBehaviour
 
     private void ResetVisual()
     {
-        if (PlungerVisual == null) return;
+        if (PlungerVisual == null)
+            return;
 
         PlungerVisual.localPosition = initialLocalPos;
     }
@@ -126,11 +137,19 @@ public class PlungerController : MonoBehaviour
     {
         CurrentBall = ball;
 
-        // 発射位置へ配置
-        ball.position = LaunchPoint.position;
+        //Debug.Log("ball位置" + LaunchPoint.position);
 
-        // 完全停止
-        ball.linearVelocity = Vector3.zero;
-        ball.angularVelocity = Vector3.zero;
+        Debug.Log("LaunchPoint" + LaunchPoint.position);
+        Debug.Log("Ball" +  ball.transform.position);
+        Debug.Log("SetBall開始");
+
+        ball.transform.localPosition = LaunchPoint.position;
+        ball.transform.localRotation = LaunchPoint.rotation;
+
+        Debug.Log("SetBall後" + ball.transform.position);
+
+        // 完全停止 (isKinematic と一緒に使うと危ないのでコメントアウト )
+        //ball.linearVelocity = Vector3.zero;
+        //ball.angularVelocity = Vector3.zero;
     }
 }

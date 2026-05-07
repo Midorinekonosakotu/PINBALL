@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// フリッパーの挙動処理
+/// </summary>
 [RequireComponent (typeof(Rigidbody))]
 [RequireComponent (typeof(HingeJoint))]
 public class FlipperInput : MonoBehaviour
@@ -34,7 +37,10 @@ public class FlipperInput : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.State != GameStates.Playing) return;    // Playing 中のみ動作
+        if (GameManager.Instance.State != GameStates.Playing)   // Playing 中のみ動作
+        {
+            return;
+        }
 
         float dir = isLeft ? -1f : 1f;
         JointSpring spring = joint.spring;
@@ -72,7 +78,10 @@ public class FlipperInput : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.TryGetComponent(out Rigidbody ball)) return;
+        if (!collision.gameObject.TryGetComponent(out Rigidbody ball))
+        {
+            return;
+        }
 
         Vector3 contactPoint = collision.contacts[0].point;
 

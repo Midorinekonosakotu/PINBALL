@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// フリッパーの入力処理
+/// </summary>
 public class FlipperController : MonoBehaviour
 {
     [SerializeField] private FlipperInput _leftFlipper;
@@ -61,7 +64,10 @@ public class FlipperController : MonoBehaviour
     /// <param name="ctx"></param>
     private void OnRightPerformed(InputAction.CallbackContext ctx)
     {
-        if (GameManager.Instance.State != GameStates.Playing) return;
+        if (GameManager.Instance.State != GameStates.Playing)
+        {
+            return;
+        }
 
         _rightFlipper.SetInput(true);
     }
