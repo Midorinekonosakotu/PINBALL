@@ -12,9 +12,9 @@ public class FlipperInput : MonoBehaviour
     [SerializeField] private HingeJoint joint;
 
     [Header("Control")]
-    [SerializeField] private float torque = 2000f;
+    [SerializeField] private float torque;
     [SerializeField] private float impulseBoost = 1.8f;
-    [SerializeField] private float maxAngularVelocity = 60f;
+    [SerializeField] private float maxAngularVelocity;
     [SerializeField] private float defaultAngle = 15f;
 
     [Header("Debug")]

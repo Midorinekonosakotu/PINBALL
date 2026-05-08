@@ -11,7 +11,7 @@ public class PlungerController : MonoBehaviour
     public Transform PlungerVisual;
     public Transform EndPoint;
 
-    public float MaxForce = 5f;
+    public float MaxForce = 3f;
     public float MaxCharge = 1f;
     public float ChargeSpeed = 1.5f;
 
@@ -109,6 +109,9 @@ public class PlungerController : MonoBehaviour
         rb.AddForce(LaunchPoint.forward * force, ForceMode.Impulse);
     }
 
+    /// <summary>
+    /// 見た目の更新
+    /// </summary>
     private void UpdateVisual()
     {
         if (PlungerVisual == null)
@@ -124,32 +127,28 @@ public class PlungerController : MonoBehaviour
         PlungerVisual.localPosition = Vector3.Lerp(initialLocalPos, EndPoint.localPosition, curved);
     }
 
+    /// <summary>
+    /// 見た目のリセット
+    /// </summary>
     private void ResetVisual()
     {
         if (PlungerVisual == null)
+        {
             return;
+
+        }
 
         PlungerVisual.localPosition = initialLocalPos;
     }
 
-    // 外部からボールをセット
+    /// <summary>
+    /// 外部からボールをセット
+    /// </summary>
     public void SetBall(Rigidbody ball)
     {
         CurrentBall = ball;
 
-        //Debug.Log("ball位置" + LaunchPoint.position);
-
-        Debug.Log("LaunchPoint" + LaunchPoint.position);
-        Debug.Log("Ball" +  ball.transform.position);
-        Debug.Log("SetBall開始");
-
         ball.transform.localPosition = LaunchPoint.position;
         ball.transform.localRotation = LaunchPoint.rotation;
-
-        Debug.Log("SetBall後" + ball.transform.position);
-
-        // 完全停止 (isKinematic と一緒に使うと危ないのでコメントアウト )
-        //ball.linearVelocity = Vector3.zero;
-        //ball.angularVelocity = Vector3.zero;
     }
 }

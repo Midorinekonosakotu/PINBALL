@@ -60,13 +60,13 @@ public class GameManager : MonoBehaviour
 
         if (RemainingBalls > 0)
         {
-            Debug.Log("Spawn実行");
+            //Debug.Log("Spawn実行");
             SpawnBall();
             ChangeState(GameStates.LaunchReady);
         }
         else
         {
-            Debug.Log("GameOver");
+            //Debug.Log("GameOver");
             ChangeState(GameStates.GameOver);
         }
     }
@@ -76,9 +76,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void SpawnBall()
     {
-        //Debug.Log("スポーン位置" + spawnPoint.position);
-        Debug.Log("スポーンボール呼ばれた");
-
         GameObject ball = Instantiate(ballPrefab);
         Rigidbody rb = ball.GetComponent<Rigidbody>();
 

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// ƒ{[ƒ‹‚ÌˆÚ“®ˆ—
+/// </summary>
 public class BallController : MonoBehaviour
 {
     public Rigidbody rb;
@@ -7,16 +10,6 @@ public class BallController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-    }
-
-    private void Update()
-    {
-        Debug.Log("Œ»İˆÊ’u" + transform.position);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        //Debug.Log("Õ“Ë" + collision.gameObject.name);
     }
 
     public void InitializeAtPosition(Vector3 position)
