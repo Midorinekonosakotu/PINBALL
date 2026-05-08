@@ -1022,6 +1022,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "GameReStart",
+                    "type": "Button",
+                    "id": "6a523325-f635-4738-8216-528025e9fbc9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1055,6 +1064,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Plunger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68a8510a-b926-4c9f-91e2-4f1e62cf02ae",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GameReStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

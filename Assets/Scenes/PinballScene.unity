@@ -327,7 +327,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231255520}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -439,7 +439,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327144035}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -597,7 +597,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.8290376, z: -0.5591929, w: 0}
-  m_LocalPosition: {x: 0, y: 1.388, z: 0.559}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -948,7 +948,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614345977}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1104,7 +1104,7 @@ PrefabInstance:
       objectReference: {fileID: 691361735}
     - target: {fileID: 4213852171039935978, guid: e9acb77f1e6b08a4ca7c1bacad812dea, type: 3}
       propertyPath: m_Name
-      value: Flipper
+      value: LeftFlipperModel
       objectReference: {fileID: 0}
     - target: {fileID: 8762550985614893110, guid: e9acb77f1e6b08a4ca7c1bacad812dea, type: 3}
       propertyPath: m_Mesh
@@ -1630,7 +1630,7 @@ Transform:
   m_GameObject: {fileID: 833068677}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2086, y: 0.281, z: -0.369}
+  m_LocalPosition: {x: 0.2086, y: 0.281, z: -0.146}
   m_LocalScale: {x: 0.62451994, y: 0.6000001, z: 0.6000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1643,7 +1643,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833068677}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipperInput
   rb: {fileID: 958693052}
   joint: {fileID: 958693051}
-  torque: 10000
+  torque: 1200
   impulseBoost: 1.8
   maxAngularVelocity: 200
   defaultAngle: 0
@@ -2188,7 +2188,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.225, y: 0.273, z: -0.06}
-  m_LocalScale: {x: 0.04, y: 1, z: 1}
+  m_LocalScale: {x: 0.04, y: 0.2, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1561907672}
@@ -2364,7 +2364,7 @@ PrefabInstance:
       objectReference: {fileID: 663728265}
     - target: {fileID: 4213852171039935978, guid: e9acb77f1e6b08a4ca7c1bacad812dea, type: 3}
       propertyPath: m_Name
-      value: Flipper
+      value: RightFlipperModel
       objectReference: {fileID: 0}
     - target: {fileID: 8762550985614893110, guid: e9acb77f1e6b08a4ca7c1bacad812dea, type: 3}
       propertyPath: m_Mesh
@@ -2446,7 +2446,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317125515}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2874,7 +2874,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364995716}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3115,7 +3115,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674455057}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3713,7 +3713,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790740710}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5882,7 +5882,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845999389}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6231,7 +6231,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887733426}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2466e08fc3160324e9951063981a04fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6383,7 +6383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipperInput
   rb: {fileID: 1979553796}
   joint: {fileID: 1979553795}
-  torque: 10000
+  torque: 1200
   impulseBoost: 1.8
   maxAngularVelocity: 200
   defaultAngle: 0

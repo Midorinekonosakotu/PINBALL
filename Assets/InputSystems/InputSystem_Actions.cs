@@ -1108,6 +1108,15 @@ public partial class @PinballInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GameReStart"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a523325-f635-4738-8216-528025e9fbc9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1141,6 +1150,17 @@ public partial class @PinballInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Plunger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68a8510a-b926-4c9f-91e2-4f1e62cf02ae"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GameReStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1238,6 +1258,7 @@ public partial class @PinballInputActions: IInputActionCollection2, IDisposable
         m_GamePlay_LeftFlipper = m_GamePlay.FindAction("LeftFlipper", throwIfNotFound: true);
         m_GamePlay_RightFlipper = m_GamePlay.FindAction("RightFlipper", throwIfNotFound: true);
         m_GamePlay_Plunger = m_GamePlay.FindAction("Plunger", throwIfNotFound: true);
+        m_GamePlay_GameReStart = m_GamePlay.FindAction("GameReStart", throwIfNotFound: true);
     }
 
     ~@PinballInputActions()
@@ -1702,6 +1723,7 @@ public partial class @PinballInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_GamePlay_LeftFlipper;
     private readonly InputAction m_GamePlay_RightFlipper;
     private readonly InputAction m_GamePlay_Plunger;
+    private readonly InputAction m_GamePlay_GameReStart;
     /// <summary>
     /// Provides access to input actions defined in input action map "GamePlay".
     /// </summary>
@@ -1725,6 +1747,10 @@ public partial class @PinballInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "GamePlay/Plunger".
         /// </summary>
         public InputAction @Plunger => m_Wrapper.m_GamePlay_Plunger;
+        /// <summary>
+        /// Provides access to the underlying input action "GamePlay/GameReStart".
+        /// </summary>
+        public InputAction @GameReStart => m_Wrapper.m_GamePlay_GameReStart;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1760,6 +1786,9 @@ public partial class @PinballInputActions: IInputActionCollection2, IDisposable
             @Plunger.started += instance.OnPlunger;
             @Plunger.performed += instance.OnPlunger;
             @Plunger.canceled += instance.OnPlunger;
+            @GameReStart.started += instance.OnGameReStart;
+            @GameReStart.performed += instance.OnGameReStart;
+            @GameReStart.canceled += instance.OnGameReStart;
         }
 
         /// <summary>
@@ -1780,6 +1809,9 @@ public partial class @PinballInputActions: IInputActionCollection2, IDisposable
             @Plunger.started -= instance.OnPlunger;
             @Plunger.performed -= instance.OnPlunger;
             @Plunger.canceled -= instance.OnPlunger;
+            @GameReStart.started -= instance.OnGameReStart;
+            @GameReStart.performed -= instance.OnGameReStart;
+            @GameReStart.canceled -= instance.OnGameReStart;
         }
 
         /// <summary>
@@ -2055,5 +2087,12 @@ public partial class @PinballInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPlunger(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "GameReStart" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGameReStart(InputAction.CallbackContext context);
     }
 }

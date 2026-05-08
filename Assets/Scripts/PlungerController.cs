@@ -36,6 +36,8 @@ public class PlungerController : MonoBehaviour
 
         inputActions.GamePlay.Plunger.performed += OnPlunger;
         inputActions.GamePlay.Plunger.canceled += OnPlungerRelease;
+
+        inputActions.GamePlay.GameReStart.performed += OnResetLaunch;
     }
 
     private void OnDisable()
@@ -43,6 +45,7 @@ public class PlungerController : MonoBehaviour
         inputActions.GamePlay.Plunger.performed -= OnPlunger;
         inputActions.GamePlay.Plunger.canceled -= OnPlungerRelease;
 
+        inputActions.GamePlay.GameReStart.performed -= OnResetLaunch;
         inputActions.Disable();
     }
 
@@ -95,18 +98,28 @@ public class PlungerController : MonoBehaviour
         GameManager.Instance.ChangeState(GameStates.Playing);
     }
 
+    private void OnResetLaunch(InputAction.CallbackContext ctx)
+    {
+        if(GameManager.Instance.State == GameStates.Playing)
+        {
+            GameManager.Instance.ChangeState(GameStates.LaunchReady);
+        }
+    }
+
     private void LaunchBall()
     {
-        if (CurrentBall == null) return;
+        if (CurrentBall == null)
+        {
+            return;
+        }
 
-        Rigidbody rb = CurrentBall;
-        rb.isKinematic = false;
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        CurrentBall.isKinematic = false;
+        CurrentBall.linearVelocity = Vector3.zero;
+        CurrentBall.angularVelocity = Vector3.zero;
 
         // ボールに向かって射出
         float force = charge * MaxForce;
-        rb.AddForce(LaunchPoint.forward * force, ForceMode.Impulse);
+        CurrentBall.AddForce(LaunchPoint.forward * force, ForceMode.Impulse);
     }
 
     /// <summary>
@@ -148,7 +161,7 @@ public class PlungerController : MonoBehaviour
     {
         CurrentBall = ball;
 
-        ball.transform.localPosition = LaunchPoint.position;
-        ball.transform.localRotation = LaunchPoint.rotation;
+        ball.transform.position = LaunchPoint.position;
+        ball.transform.rotation = LaunchPoint.rotation;
     }
 }
